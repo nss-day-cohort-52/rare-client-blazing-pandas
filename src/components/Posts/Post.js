@@ -1,5 +1,5 @@
 import { useState } from "react"
-export default ({Post}) => {
+export default ({post}) => {
     
     const [details, setdetails] = useState(false)
 
@@ -8,15 +8,15 @@ export default ({Post}) => {
         <>
             { details
                 ? <div>
-                        <p>Title</p>
+                        <p>{post?.title}</p>
                         <p>Author</p>
                         <p>Category</p>
                         <p>Publication date</p>
                         <p>Content</p>
                 </div>
                 : <div>
-                        <p>Post Title</p>
-                        <p>Author Name</p>
+                        <p>{post.title}</p>
+                        <p>{post.author}</p>
                         <p>Category</p>
                 </div>
 
