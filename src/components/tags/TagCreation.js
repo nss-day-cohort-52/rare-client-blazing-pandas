@@ -10,6 +10,7 @@ export const CreateTag = () => {
           <div className="control">
             <input className="input" type="text" ref={newTag} />
           </div>
+          <button className="button is-link" type="submit" >Submit</button>
         </div>
     </section>
 }
