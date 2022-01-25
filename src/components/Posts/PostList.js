@@ -9,7 +9,7 @@ export const PostList = () => {
 
     useEffect(
         () => {
-            fetch(`http://localhost:8088/Posts`)
+            fetch(`http://localhost:8088/posts`)
                 .then(res => res.json())
                 .then((postsArray) => {
                     setPosts(postsArray)
