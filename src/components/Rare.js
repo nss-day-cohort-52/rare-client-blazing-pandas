@@ -4,6 +4,7 @@ import { ApplicationViews } from "./ApplicationViews"
 import { NavBar } from "./nav/NavBar"
 import { Login } from "./auth/Login"
 import { Register } from "./auth/Register"
+import {TagList} from "./tags/TagList"
 import { PostList } from "./Posts/PostList"
 
 export const Rare = () => {
@@ -18,10 +19,15 @@ export const Rare = () => {
     {
       token
         ?
-        <Route>
-          <NavBar token={token} setToken={setToken} />
-          <ApplicationViews />
-        </Route>
+        <>
+          <Route>
+            <NavBar token={token} setToken={setToken} />
+            <ApplicationViews />
+          </Route>
+          <Route exact path="/tags">
+            <TagList/>
+          </Route>
+        </>
         :
         <Redirect to="/login" />
     }
