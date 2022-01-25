@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react"
+import Post from "./Post"
 
 
 export const PostList = () => {
