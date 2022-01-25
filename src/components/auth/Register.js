@@ -13,6 +13,7 @@ export const Register = ({setToken}) => {
   const verifyPassword = useRef()
   const passwordDialog = useRef()
   const history = useHistory()
+  const profileImage = useRef()
 
   const handleRegister = (e) => {
     e.preventDefault()
@@ -24,7 +25,8 @@ export const Register = ({setToken}) => {
         last_name: lastName.current.value,
         email: email.current.value,
         password: password.current.value,
-        bio: bio.current.value
+        bio: bio.current.value,
+        profile_image: profileImage.current.value
       }
 
       registerUser(newUser)
@@ -47,28 +49,28 @@ export const Register = ({setToken}) => {
         <div className="field">
           <label className="label">First Name</label>
           <div className="control">
-            <input className="input" type="text" ref={firstName} />
+            <input className="input" type="text" required ref={firstName} />
           </div>
         </div>
 
         <div className="field">
           <label className="label">Last Name</label>
           <div className="control">
-            <input className="input" type="text" ref={lastName} />
+            <input className="input" type="text" required ref={lastName} />
           </div>
         </div>
 
         <div className="field">
           <label className="label">Username</label>
           <div className="control">
-            <input className="input" type="text" ref={username} />
+            <input className="input" type="text" required ref={username} />
           </div>
         </div>
 
         <div className="field">
           <label className="label">Email</label>
           <div className="control">
-            <input className="input" type="email" ref={email} />
+            <input className="input" type="email" required ref={email} />
           </div>
         </div>
 
@@ -77,13 +79,13 @@ export const Register = ({setToken}) => {
           <div className="field-body">
             <div className="field">
               <p className="control is-expanded">
-                <input className="input" type="password" placeholder="Password" ref={password} />
+                <input className="input" type="password" placeholder="Password" required ref={password} />
               </p>
             </div>
 
             <div className="field">
               <p className="control is-expanded">
-                <input className="input" type="password" placeholder="Verify Password" ref={verifyPassword} />
+                <input className="input" type="password" placeholder="Verify Password" required ref={verifyPassword} />
               </p>
             </div>
           </div>
@@ -92,9 +94,17 @@ export const Register = ({setToken}) => {
         <div className="field">
           <label className="label">Bio</label>
           <div className="control">
-            <textarea className="textarea" placeholder="Tell us about yourself..." ref={bio}></textarea>
+            <textarea className="textarea" placeholder="Tell us about yourself..." required ref={bio}></textarea>
           </div>
         </div>
+
+        <div className="field">
+          <label className="label">Profile Image URL</label>
+          <div className="control">
+            <input className="input" placeholder="Profile Image URL" ref={profileImage}></input>
+          </div>
+        </div>
+
 
         <div className="field is-grouped">
           <div className="control">
