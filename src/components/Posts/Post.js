@@ -9,7 +9,7 @@ export default ({post}) => {
             { details
                 ? <div>
                         <p>{post?.title}</p>
-                        <p>Author</p>
+                        <p>{post.user.username}</p>
                         <p>Category</p>
                         <p>Publication date</p>
                         <p>Content</p>
