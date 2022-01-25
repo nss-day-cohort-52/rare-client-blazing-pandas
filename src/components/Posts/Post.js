@@ -1,5 +1,7 @@
+import { useState } from "react"
 export default ({Post}) => {
     
+    const [details, setdetails] = useState(false)
 
 
     return (
