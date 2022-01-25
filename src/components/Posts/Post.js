@@ -15,9 +15,7 @@ export default ({post}) => {
                         <p>Content</p>
                 </div>
                 : <div>
-                        <p>{post.title}</p>
-                        <p>{post.author}</p>
-                        <p>Category</p>
+                        <h3>{post.title}</h3> <img src={post.image_url} /> <p>{post.user.username}</p> <p>{post.category.label}</p>
                 </div>
 
             }
