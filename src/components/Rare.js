@@ -6,6 +6,7 @@ import { Login } from "./auth/Login"
 import { Register } from "./auth/Register"
 import {TagList} from "./tags/TagList"
 import { PostList } from "./Posts/PostList"
+import Post from "./Posts/Post"
 
 export const Rare = () => {
   const [token, setTokenState] = useState(localStorage.getItem('token'))
@@ -39,6 +40,9 @@ export const Rare = () => {
     
     <Route exact path="/PostList">
       <PostList />
+    </Route>
+    <Route exact path="/posts/:postId(\d+)">
+      <Post />
     </Route>
     
     <Route path="/register" exact>
