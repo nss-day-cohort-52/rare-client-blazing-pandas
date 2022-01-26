@@ -1,7 +1,9 @@
 import React, { useRef } from "react"
 import { Link, useHistory } from "react-router-dom"
+import { PostList } from "../Posts/PostList"
 import "./NavBar.css"
 import Logo from "./rare.jpeg"
+
 
 export const NavBar = ({ token, setToken }) => {
   const history = useHistory()
