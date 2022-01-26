@@ -20,6 +20,7 @@ export default ({ post }) => {
                         <h2>{post?.title}</h2>
                     </div>
                     <div><img src={post.image_url} /></div> 
+                    <div><p>{post.content} </p></div> 
                     <div>
                         <p>Author: {post.user.username}</p>
                     </div> 
