@@ -1,31 +1,55 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
+import { Link } from "react-router-dom"
+import { useParams } from "react-router-dom/cjs/react-router-dom.min"
 import "./Post.css"
+
+
 export default ({ post }) => {
 
-    const [details, setdetails] = useState(false)
+    const [details, setDetails] = useState(false)
+    const [currentPost, setCurrentPost] = useState({})
+    const { postId } = useParams()
 
+    useEffect(
+        () => {
+        fetch(`http://localhost:8088/posts/${postId}`)
+            .then(res => res.json())
+            .then((postDetails) => {
+                setCurrentPost(postDetails)
+            })
+        }, []
+    )
+
+    useEffect(() => {
+        if (postId) {
+            setDetails(true)
+        }
+    }, [])
 
     return (
         <>
             {details
-                ? <div>
-                    <p>{post?.title}</p>
-                    <p>{post.user.username}</p>
-                    <p>Category</p>
-                    <p>Publication date</p>
-                    <p>Content</p>
+                ? <div class="post">
+                    <p>{currentPost?.title}</p>
+                    <p>{currentPost?.category?.label}</p>
+                    <img src={currentPost?.image_url}></img>
+                    <p>Author: {currentPost?.user?.username}</p>
+                    <p>{currentPost?.content}</p>
+                    <p>{currentPost?.publication_date}</p>
                 </div>
                 : <div class="post">
                     <div>
-                        <h2>{post?.title}</h2>
+                        <Link to={`/posts/${post?.id}`} >
+                            <h2>{post?.title}</h2>
+                        </Link>
                     </div>
-                    <div><img src={post.image_url} /></div> 
-                    <div><p>{post.content} </p></div> 
+                    <div><img src={post?.image_url} /></div> 
+                    <div><p>{post?.content} </p></div> 
                     <div>
-                        <p>Author: {post.user.username}</p>
+                        <p>Author: {post?.user?.username}</p>
                     </div> 
                     <div>
-                        <p>{post.category.label}</p>
+                        <p>{post?.category.label}</p>
                     </div>
                 </div>
 
