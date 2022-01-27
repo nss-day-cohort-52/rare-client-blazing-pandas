@@ -4,11 +4,13 @@ import { ApplicationViews } from "./ApplicationViews"
 import { NavBar } from "./nav/NavBar"
 import { Login } from "./auth/Login"
 import { Register } from "./auth/Register"
+import { CategoryList } from "./Categories/CategoryList"
 import {TagList} from "./tags/TagList"
 import { PostList } from "./Posts/PostList"
 import Post from "./Posts/Post"
 import { CreatePostsForm } from "./Posts/CreatePostForm"
 import { UserList } from "./users/UserList"
+import { MyPosts } from "./Posts/MyPosts"
 
 export const Rare = () => {
   const [token, setTokenState] = useState(localStorage.getItem('token'))
@@ -35,6 +37,7 @@ export const Rare = () => {
         <Redirect to="/login" />
     }
 
+    
     <Route exact path="/login" >
       <NavBar token={token} setToken={setToken} />
       <Login token={token} setToken={setToken} />
@@ -52,10 +55,17 @@ export const Rare = () => {
     <Route exact path="/Users">
       <UserList />
     </Route>
+    <Route exact path="/my-posts">
+      <MyPosts />
+    </Route>
     
     <Route path="/register" exact>
       <NavBar token={token} setToken={setToken} />
       <Register token={token} setToken={setToken} />
+    </Route>
+
+    <Route path="/categories" exact>
+      <CategoryList />
     </Route>
 
   </>

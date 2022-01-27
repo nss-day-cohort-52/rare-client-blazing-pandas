@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react"
 import { Link } from "react-router-dom"
-import { useParams } from "react-router-dom/cjs/react-router-dom.min"
+import { useLocation, useParams } from "react-router-dom/cjs/react-router-dom.min"
 import "./Post.css"
 
 
@@ -9,6 +9,8 @@ export default ({ post }) => {
     const [details, setDetails] = useState(false)
     const [currentPost, setCurrentPost] = useState({})
     const { postId } = useParams()
+    const location = useLocation()
+
 
     useEffect(
         () => {
@@ -29,7 +31,8 @@ export default ({ post }) => {
     return (
         <>
             {details
-                ? <div class="post">
+                ? 
+                <div class="post">
                     <p>{currentPost?.title}</p>
                     <p>{currentPost?.category?.label}</p>
                     <img src={currentPost?.image_url}></img>
@@ -40,7 +43,9 @@ export default ({ post }) => {
                         <p>Tags: {post?.tags.map(tag=>tag.label).join(", ")}</p>
                     </div>
                 </div>
-                : <div class="post">
+                    : 
+                <div class="post">
+                    { (location.pathname === "/my-posts") ? <><div><button>delete</button></div> <div><button>edit</button></div></>: null} 
                     <div>
                         <Link to={`/posts/${post?.id}`} >
                             <h2>{post?.title}</h2>
