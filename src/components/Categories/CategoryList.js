@@ -1,12 +1,4 @@
 import { CategoryLine } from "./CategoryLine"
-
-// export const CategoryList = () => {
-//     return <>
-//     <h1> Categories</h1>
-//     <Category />
-//     </>
-// }
-
 import React, { useState, useEffect } from "react"
 import { getCategories } from "../Repos/CategoriesRepository"
 import "./category.css"
