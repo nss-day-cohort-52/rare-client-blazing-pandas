@@ -36,6 +36,9 @@ export default ({ post }) => {
                     <p>Author: {currentPost?.user?.username}</p>
                     <p>{currentPost?.content}</p>
                     <p>{currentPost?.publication_date}</p>
+                    <div>
+                        <p>Tags: {post?.tags.map(tag=>tag.label).join(", ")}</p>
+                    </div>
                 </div>
                 : <div class="post">
                     <div>
