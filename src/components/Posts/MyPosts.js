@@ -25,7 +25,7 @@ export const MyPosts = () => {
         <>
             {
                 posts.map((post) => 
-                    <Post class="post__item" key={post.id} post={post} />
+                    <Post class="post__item" key={post.id} post={post}  />
                 )
             }
         </>
