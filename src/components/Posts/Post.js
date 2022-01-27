@@ -44,7 +44,7 @@ export default ({ post, sync }) => {
                     <p>{currentPost?.content}</p>
                     <p>{currentPost?.publication_date}</p>
                     <div>
-                        <p>Tags: {post?.tags.map(tag=>tag.label).join(", ")}</p>
+                        <p>Tags: {currentPost?.tags?.map(tag=>tag.label).join(", ")}</p>
                     </div>
                 </div>
                     : 
@@ -64,7 +64,7 @@ export default ({ post, sync }) => {
                         <p>{post?.category.label}</p>
                     </div>
                     <div>
-                        <p>Tags: {post?.tags.map(tag=>tag.label).join(", ")}</p>
+                        <p>Tags: {post?.tags?.map(tag=>tag.label).join(", ")}</p>
                     </div>
                 </div>
 
