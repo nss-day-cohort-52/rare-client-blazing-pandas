@@ -51,6 +51,9 @@ export default ({ post }) => {
                     <div>
                         <p>{post?.category.label}</p>
                     </div>
+                    <div>
+                        <p>Tags: {post?.tags.map(tag=>tag.label).join(", ")}</p>
+                    </div>
                 </div>
 
             }
