@@ -27,12 +27,24 @@ export const PostList = () => {
             .then(setCategories)
     }, [])
 
-
+    const postFilter = (event) => {
+        if (event.target.value === "0") {
+            getPosts()
+            .then((postsArray) => {
+                setPosts(postsArray)
+        })} 
+        else {
+            getPostsByCategory(event.target.value)
+            .then((postsArray) => {
+                setPosts(postsArray)
+        })
+        }
+    }
     return (
         <>
             <div className="categoryFilter">
                 <select id="category" onChange={(event) => {
-                    setFilter(parseInt(event.target.value))
+                    postFilter(event)
                 }}
                     defaultValue=""
                     name="category"
