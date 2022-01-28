@@ -9,15 +9,17 @@ export const MyPosts = () => {
     const [currentUsersPosts, setCurrentUsersPosts] = ([])
     const user_id = parseInt(localStorage.getItem("token"))
 
-    useEffect(
-        () => {
-            fetch(`http://localhost:8088/posts?user_id=${user_id}`)
-                .then(res => res.json())
-                .then((postsArray) => {
-                    setPosts(postsArray)
-                })
+    useEffect(() =>{
+        getPosts()
         }, []
     )
+
+    const getPosts = () => {
+        fetch(`http://localhost:8088/posts?user_id=${user_id}`)
+            .then(res => res.json())
+            .then((postsArray) => {
+                setPosts(postsArray)
+            })}
 
 
 
@@ -25,7 +27,7 @@ export const MyPosts = () => {
         <>
             {
                 posts.map((post) => 
-                    <Post class="post__item" key={post.id} post={post}  />
+                    <Post class="post__item" key={post.id} post={post} sync={getPosts}  />
                 )
             }
         </>
