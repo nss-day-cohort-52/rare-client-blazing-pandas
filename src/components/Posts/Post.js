@@ -40,7 +40,7 @@ export default ({ post, sync }) => {
                     <p>{currentPost?.title}</p>
                     <p>{currentPost?.category?.label}</p>
                     <img src={currentPost?.image_url}></img>
-                    <p>Author: {currentPost?.user?.username}</p>
+                    <p>Author: <Link to={`/Users/${currentPost?.user?.id}`}>{`${currentPost?.user?.username}`}</Link></p>
                     <p>{currentPost?.content}</p>
                     <p>{currentPost?.publication_date}</p>
                     <div>
