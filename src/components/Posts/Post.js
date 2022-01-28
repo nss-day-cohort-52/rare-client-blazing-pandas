@@ -43,6 +43,9 @@ export default ({ post, sync }) => {
                     <p>Author: {currentPost?.user?.username}</p>
                     <p>{currentPost?.content}</p>
                     <p>{currentPost?.publication_date}</p>
+                    <div>
+                        <p>Tags: {currentPost?.tags?.map(tag=>tag.label).join(", ")}</p>
+                    </div>
                 </div>
                     : 
                 <div class="post">
@@ -59,6 +62,9 @@ export default ({ post, sync }) => {
                     </div> 
                     <div>
                         <p>{post?.category.label}</p>
+                    </div>
+                    <div>
+                        <p>Tags: {post?.tags?.map(tag=>tag.label).join(", ")}</p>
                     </div>
                 </div>
 
