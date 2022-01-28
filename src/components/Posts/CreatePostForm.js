@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react'
 import { useHistory } from "react-router-dom"
+import { addPost } from '../Repos/PostsRepository'
 import { getTags, addPostTag } from '../Repos/TagsRepository'
 
 
@@ -48,15 +49,7 @@ export const CreatePostsForm = () => {
             content: contentText.current.value,
             approved: 1
         }
-        const fetchOptions = {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify(postBuilder)
-        }
-        return fetch("http://localhost:8088/posts", fetchOptions)
-            .then(response => response.json())
+        addPost(postBuilder)
             .then(response => addPostTags(response.id, activeTags))
             .then((id) => {
                 history.push(`/posts/${id}`)
