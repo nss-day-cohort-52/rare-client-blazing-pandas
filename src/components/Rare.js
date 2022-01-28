@@ -53,7 +53,7 @@ export const Rare = () => {
     <Route exact path="/createPost">
       <CreatePostsForm />
       </Route>
-    <Route exact path="/editPost">
+    <Route exact path="/editPost/:postId(\d+)">
       <EditPostsForm />
       </Route>
     <Route exact path="/Users">

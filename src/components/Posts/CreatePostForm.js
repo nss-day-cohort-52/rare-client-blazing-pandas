@@ -1,5 +1,6 @@
 import React, {useState, useEffect, useRef} from 'react'
 import {useHistory } from "react-router-dom"
+import { getCategories } from '../Repos/CategoriesRepository'
 
 
 export const CreatePostsForm = () => {
@@ -7,12 +8,21 @@ export const CreatePostsForm = () => {
     const history = useHistory()
     const titleText = useRef()
     const imagePic = useRef()
+    const category = useRef()
     const contentText = useRef()
+    const [categories, setCategories] = useState([])
+    const syncCategories = () =>{
+        getCategories().then((CategoryInfo) => setCategories(CategoryInfo))
+    }
+
+    useEffect(() => {
+        syncCategories()
+    }, [])
 
     const createPost = () => {
        const postBuilder = {
         user_id: parseInt(localStorage.getItem('token')),
-        category_id: 1,
+        category_id: parseInt(category.current.value),
         title: titleText.current.value,
         publication_date: Date.now(),
         image_url: imagePic.current.value,
@@ -49,6 +59,22 @@ export const CreatePostsForm = () => {
                     <input type="text" className="form-control" placeholder="Put an Image here" ref={imagePic}/>
                 </div>
             </fieldset>
+            <div className="field">
+                        <label htmlFor="categoryId" className="label">Category: </label>
+                        <div className="control">
+                            <div className="select">
+                                <select name="categoryId"
+                                    ref={category}>
+                                    
+                                    {categories.map(c => (
+                                        <option key={c.id} value={c.id} >
+                                            {c.label}
+                                        </option>
+                                    ))}
+                                </select>
+                            </div>
+                        </div>
+                    </div>
             <fieldset>
                 <div className="form-group" key="content">
                     <label htmlFor="content">Content:</label>

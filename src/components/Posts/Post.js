@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react"
 import { Link } from "react-router-dom"
-import { useLocation, useParams } from "react-router-dom/cjs/react-router-dom.min"
+import { useHistory, useLocation, useParams } from "react-router-dom/cjs/react-router-dom.min"
 import "./Post.css"
 
 
@@ -10,7 +10,7 @@ export default ({ post, sync }) => {
     const [currentPost, setCurrentPost] = useState({})
     const { postId } = useParams()
     const location = useLocation()
-
+    const history = useHistory()
 
     useEffect(
         () => {
@@ -46,7 +46,7 @@ export default ({ post, sync }) => {
                 </div>
                     : 
                 <div class="post">
-                    { (location.pathname === "/my-posts") ? <><div><button onClick={() => {if (confirm('Are you sure you want to delete this post?') == true) delete_post(post?.id)}}>Delete</button></div> <div><button>Edit</button></div></>: null} 
+                    { (location.pathname === "/my-posts") ? <><div><button onClick={() => {if (confirm('Are you sure you want to delete this post?') == true) delete_post(post?.id)}}>Delete</button></div> <div><button onClick={() => history.push(`/editPost/${post.id}`)}>Edit</button></div></>: null} 
                     <div>
                         <Link to={`/posts/${post?.id}`} >
                             <h2>{post?.title}</h2>
