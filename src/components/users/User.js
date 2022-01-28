@@ -1,7 +1,10 @@
+import { Link, useHistory } from "react-router-dom"
+
 export const User = ({user}) => {
     return <>
         <div>
-            <text>{`Username: ${user.username} First Name: ${user.first_name} Last Name: ${user.last_name}`}</text>
+            <Link to={`/Users/${user.id}`}>{`${user.username}`}</Link> 
+            <p>{`First Name: ${user.first_name} Last Name: ${user.last_name}`}</p>
         </div>
     </>
 }

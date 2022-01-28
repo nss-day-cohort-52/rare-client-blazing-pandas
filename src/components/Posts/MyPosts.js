@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react"
 import { Link } from "react-router-dom"
+import { getPostsByUser } from "../Repos/PostsRepository"
 import Post from "./Post"
 
 
@@ -9,17 +10,14 @@ export const MyPosts = () => {
     const [currentUsersPosts, setCurrentUsersPosts] = ([])
     const user_id = parseInt(localStorage.getItem("token"))
 
+    const syncPosts = () => {
+        getPostsByUser(user_id).then(posts => setPosts(posts))
+    }
+
     useEffect(() =>{
-        getPosts()
+        syncPosts()
         }, []
     )
-
-    const getPosts = () => {
-        fetch(`http://localhost:8088/posts?user_id=${user_id}`)
-            .then(res => res.json())
-            .then((postsArray) => {
-                setPosts(postsArray)
-            })}
 
 
 
@@ -27,7 +25,7 @@ export const MyPosts = () => {
         <>
             {
                 posts.map((post) => 
-                    <Post class="post__item" key={post.id} post={post} sync={getPosts}  />
+                    <Post class="post__item" key={post.id} post={post} sync={syncPosts}  />
                 )
             }
         </>

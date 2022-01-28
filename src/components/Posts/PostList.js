@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react"
 import { Link } from "react-router-dom"
 import { getCategories, getPostsByCategory } from "../Repos/CategoriesRepository"
+import { getPosts } from "../Repos/PostsRepository"
 import Post from "./Post"
 
 
@@ -14,8 +15,7 @@ export const PostList = () => {
 
     useEffect(
         () => {
-            fetch(`http://localhost:8088/posts`)
-                .then(res => res.json())
+            getPosts()
                 .then((postsArray) => {
                     setPosts(postsArray)
                 })

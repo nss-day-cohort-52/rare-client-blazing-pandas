@@ -12,3 +12,13 @@ export const addTag = tag => {
         body: JSON.stringify(tag)
     }).then(getTags)
 }
+
+export const addPostTag = postTag => {
+    return fetch("http://localhost:8088/postTags", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(postTag)
+    }).then(getTags)
+}
