@@ -23,5 +23,10 @@ export const getPostsByUser = (user_id) => {
         .then(res => res.json())
 }
 
+export const getPostsByCategory = (category_id) => {
+    return fetch(`http://localhost:8088/posts?category_id=${category_id}`)
+        .then(res => res.json())
+}
+
 export const delete_post = (id) => {
     return fetch(`http://localhost:8088/posts/${id}`, {method: 'DELETE'})}
