@@ -1,10 +1,10 @@
 export const getTags = () => {
-    return fetch("http://localhost:8088/tags")
+    return fetch("http://localhost:8000/tags")
         .then(res => res.json())
 }
 
 export const addTag = tag => {
-    return fetch("http://localhost:8088/tags", {
+    return fetch("http://localhost:8000/tags", {
         method: "POST",
         headers: {
             "Content-Type": "application/json"
@@ -14,7 +14,7 @@ export const addTag = tag => {
 }
 
 export const addPostTag = postTag => {
-    return fetch("http://localhost:8088/postTags", {
+    return fetch("http://localhost:8000/postTags", {
         method: "POST",
         headers: {
             "Content-Type": "application/json"

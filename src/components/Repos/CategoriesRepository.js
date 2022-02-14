@@ -1,10 +1,10 @@
 export const getCategories = () => {
-    return fetch("http://localhost:8088/categories")
+    return fetch("http://localhost:8000/categories")
         .then(res => res.json())
 }
 
 export const addCategory = category => {
-    return fetch("http://localhost:8088/categories", {
+    return fetch("http://localhost:8000/categories", {
         method: "POST",
         headers: {
             "Content-Type": "application/json"
@@ -14,6 +14,6 @@ export const addCategory = category => {
 }
 
 export const getPostsByCategory = (id) => {
-    return fetch(`http://localhost:8088/posts?category_id=${id}`)
+    return fetch(`http://localhost:8000/posts?category_id=${id}`)
     .then(res => res.json())
 }
