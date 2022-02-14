@@ -1,10 +1,10 @@
 export const getPosts = () => {
-    return fetch("http://localhost:8088/posts")
+    return fetch("http://localhost:8000/posts")
         .then(res => res.json())
 }
 
 export const addPost = post => {
-    return fetch("http://localhost:8088/posts", {
+    return fetch("http://localhost:8000/posts", {
         method: "POST",
         headers: {
             "Content-Type": "application/json"
@@ -14,19 +14,19 @@ export const addPost = post => {
 }
 
 export const getSinglePost = (postId) => {
-    return fetch(`http://localhost:8088/posts/${postId}`)
+    return fetch(`http://localhost:8000/posts/${postId}`)
             .then(res => res.json())
 }
 
 export const getPostsByUser = (user_id) => {
-    return fetch(`http://localhost:8088/posts?user_id=${user_id}`)
+    return fetch(`http://localhost:8000/posts?user_id=${user_id}`)
         .then(res => res.json())
 }
 
 export const getPostsByCategory = (category_id) => {
-    return fetch(`http://localhost:8088/posts?category_id=${category_id}`)
+    return fetch(`http://localhost:8000/posts?category_id=${category_id}`)
         .then(res => res.json())
 }
 
 export const delete_post = (id) => {
-    return fetch(`http://localhost:8088/posts/${id}`, {method: 'DELETE'})}
+    return fetch(`http://localhost:8000/posts/${id}`, {method: 'DELETE'})}
