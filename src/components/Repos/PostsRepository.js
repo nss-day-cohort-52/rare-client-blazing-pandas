@@ -1,6 +1,5 @@
 export const getPosts = () => {
     return fetch("http://localhost:8000/posts",{
-        method: "GET",
         headers: {
             "Content-Type": "application/json", 
             "Authorization": `Token ${localStorage.getItem("token")}`
@@ -22,7 +21,6 @@ export const addPost = post => {
 
 export const getSinglePost = (postId) => {
     return fetch(`http://localhost:8000/posts/${postId}`, {
-        method: "GET",
         headers: {
             "Content-Type": "application/json", 
             "Authorization": `Token ${localStorage.getItem("token")}`
@@ -33,7 +31,6 @@ export const getSinglePost = (postId) => {
 
 export const getPostsByUser = (user_id) => {
     return fetch(`http://localhost:8000/posts?user_id=${user_id}`, {
-        method: "GET",
         headers: {
             "Content-Type": "application/json", 
             "Authorization": `Token ${localStorage.getItem("token")}`
@@ -44,7 +41,6 @@ export const getPostsByUser = (user_id) => {
 
 export const getPostsByCategory = (category_id) => {
     return fetch(`http://localhost:8000/posts?category_id=${category_id}`, {
-        method: "GET",
         headers: {
             "Content-Type": "application/json", 
             "Authorization": `Token ${localStorage.getItem("token")}`
