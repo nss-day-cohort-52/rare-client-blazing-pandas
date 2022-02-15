@@ -56,10 +56,10 @@ export default ({ post, sync }) => {
                     <div><img src={post?.image_url} /></div>
                     <div><p>{post?.content} </p></div>
                     <div>
-                        <p>Author: {post?.user?.username}</p>
+                        <p>Author: {post?.user_id?.user?.username}</p>
                     </div>
                     <div>
-                        <p>{post?.category.label}</p>
+                        <p>{post?.category?.label}</p>
                     </div>
                     <div>
                         <p>Tags: {post?.tags?.map(tag => tag.label).join(", ")}</p>
