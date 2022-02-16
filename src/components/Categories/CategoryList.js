@@ -18,7 +18,7 @@ export const CategoryList = () => {
     return <section className="flexside">
         <div>
             <h3>Categories</h3>
-            {categories.map(category => <CategoryLine key={`category_${category.id}`}label={category.label} />)}
+            {categories.map(category => <CategoryLine key={`category_${category.id}`}cat={category} sync={syncCategories}/>)}
         </div>
         <CreateCategory sync={syncCategories}/>
     </section>
