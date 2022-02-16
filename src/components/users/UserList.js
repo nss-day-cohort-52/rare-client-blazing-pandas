@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react"
+import { getAuth } from "../auth/AuthManager"
 import { getUsers } from "../Repos/UsersRepository"
 import { User } from "./User"
 import "./users.css"
@@ -6,12 +7,14 @@ import "./users.css"
 
 export const UserList = () => {
     const [users, setUsers] = useState([])
+    const [isAdmin, setAdmin] = useState(false)
     const syncUsers = () =>{
         getUsers().then((userInfo) => setUsers(userInfo))
     }
 
     useEffect(() => {
         syncUsers()
+        getAuth().then(setAdmin)
     }, [])
 
     return <section className="flexside">
