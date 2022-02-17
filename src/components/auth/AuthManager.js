@@ -26,8 +26,7 @@ export const registerUser = (newUser) => {
 export const getAuth = () => {
   return fetch("http://127.0.0.1:8000/authorize", {
     headers: {
-      "Content-Type": "application/json",
       "Authorization": `Token ${localStorage.getItem("token")}`
     }
-  })
+  }).then(res => res.json())
 } 
