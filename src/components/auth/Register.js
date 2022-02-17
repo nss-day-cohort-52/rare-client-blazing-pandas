@@ -10,6 +10,7 @@ export const Register = ({setToken}) => {
   const username = useRef()
   const bio = useRef()
   const password = useRef()
+  const isAdmin = useRef()
   const verifyPassword = useRef()
   const passwordDialog = useRef()
   const history = useHistory()
@@ -26,7 +27,8 @@ export const Register = ({setToken}) => {
         email: email.current.value,
         password: password.current.value,
         bio: bio.current.value,
-        profile_image: profileImage.current.value
+        profile_image: profileImage.current.value,
+        admin: isAdmin.current.checked
       }
 
       registerUser(newUser)
@@ -102,6 +104,13 @@ export const Register = ({setToken}) => {
           <label className="label">Profile Image URL</label>
           <div className="control">
             <input className="input" placeholder="Profile Image URL" ref={profileImage}></input>
+          </div>
+        </div>
+        
+        <div className="field">
+          <label className="label">Admin</label>
+          <div className="control">
+            <input type="checkbox" ref={isAdmin}></input>
           </div>
         </div>
 
