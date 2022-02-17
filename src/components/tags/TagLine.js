@@ -1,17 +1,7 @@
-// export const TagLine = ({label}) => {
-//     return <>
-//         <div>
-//             <text>{label}</text>
-//             <button className="button is-link" type="submit" >edit</button>
-//             <button className="button is-link is-light" type="submit" >delete</button>
-//         </div>
-//     </>
-// }
-
 import { useState } from "react"
 import { deleteTag, editTag } from "../Repos/TagsRepository"
 
-export const TagLine = ({ cat, sync }) => {
+export const TagLine = ({ ta, sync }) => {
     const [editing, setEditing] = useState(false)
     const [tag, setTag] = useState(ta)
     const updateTag = (e) => {
