@@ -35,7 +35,7 @@ export default ({ post, sync }) => {
                     <p>{currentPost?.title}</p>
                     <p>{currentPost?.category?.label}</p>
                     <img src={currentPost?.image_url}></img>
-                    <p>Author: <Link to={`/Users/${currentPost?.user?.id}`}>{`${currentPost?.user?.username}`}</Link></p>
+                    <p>Author: <Link to={`/Users/${currentPost?.user?.id}`}>{`${currentPost?.user?.user.username}`}</Link></p>
                     <p>{currentPost?.content}</p>
                     <p>{currentPost?.publication_date}</p>
                     <div>
@@ -56,7 +56,7 @@ export default ({ post, sync }) => {
                     <div><img src={post?.image_url} /></div>
                     <div><p>{post?.content} </p></div>
                     <div>
-                        <p>Author: {post?.user_id?.user?.username}</p>
+                        <p>Author: {post?.user?.user?.username}</p>
                     </div>
                     <div>
                         <p>{post?.category?.label}</p>
