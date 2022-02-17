@@ -40,11 +40,22 @@ export const CreatePostsForm = () => {
     }
 
     const createPost = () => {
+        const postDate = new Date()
+        const createdYear = postDate.getFullYear()
+        const createdMonth = postDate.getMonth() + 1
+        const createdDay = postDate.getDate()
+        const twoDigit = (dateString) => {
+            if (dateString.length < 2) {
+                return `0${dateString}`
+            } else {
+                return dateString
+            }
+        }
         const postBuilder = {
-            user_id: parseInt(localStorage.getItem('token')),
-            category_id: 1,
+            user: parseInt(localStorage.getItem('token')),
+            category: 1,
             title: titleText.current.value,
-            publication_date: Date.now(),
+            publication_date: `${createdYear}-${twoDigit(createdMonth)}-${twoDigit(createdDay)}`,
             image_url: imagePic.current.value,
             content: contentText.current.value,
             approved: 1
