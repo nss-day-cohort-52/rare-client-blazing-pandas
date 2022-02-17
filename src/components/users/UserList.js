@@ -16,7 +16,7 @@ export const UserList = () => {
 
     useEffect(() => {
         syncUsers()
-        getAuth().then(res => setAuth(res.auth))
+        getAuth().then(res => setAuth(res))
     }, [])
     useEffect(()=> {
         if (!auth.auth) {history.push('/')}

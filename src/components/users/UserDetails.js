@@ -15,11 +15,11 @@ export const UserDetails = () => {
     return <>
         <div>
             <text>test</text>
-            <p>{`Username: ${user.username}`}</p>
-            {user.image_url !== "" ? <img src={`${user.image_url}`}/>:null}
-            <p>{`Full Name: ${user.first_name} ${user.last_name}`}</p>
+            <p>{`Username: ${user.user?.username}`}</p>
+            {user.user?.image_url !== "" ? <img src={`${user.profile_image_url}`}/>:null}
+            <p>{`Full Name: ${user.user?.first_name} ${user.user?.last_name}`}</p>
             <p>{`Bio: ${user.bio}`}</p>
-            <p>{`Created On: ${user.created_on}`}</p>
+            <p>{`Created On: ${user.user?.date_joined}`}</p>
         </div>
     </>
 }
