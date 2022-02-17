@@ -1,5 +1,6 @@
 import React, { useRef } from "react"
 import { Link, useHistory } from "react-router-dom"
+import { getAuth } from "../auth/AuthManager"
 import { PostList } from "../Posts/PostList"
 import "./NavBar.css"
 import Logo from "./rare.jpeg"
@@ -39,7 +40,7 @@ export const NavBar = ({ token, setToken }) => {
                 <Link to="/PostList" className="navbar-item">All Posts</Link>
                 <Link to="/categories" className="navbar-item">Category Management</Link>
                 <Link to="/createPost" className="navbar-item">Create Posts</Link>
-                <Link to="/Users" className="navbar-item">User Management</Link>
+                {getAuth() ? <Link to="/Users" className="navbar-item">User Management</Link> : null}
                 <Link to="/my-posts" className="navbar-item">My Posts</Link>
               </>
               :
