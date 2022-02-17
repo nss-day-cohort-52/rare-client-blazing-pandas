@@ -22,3 +22,11 @@ export const registerUser = (newUser) => {
     body: JSON.stringify(newUser)
   }).then(res => res.json())
 }
+
+export const getAuth = () => {
+  return fetch("http://127.0.0.1:8000/authorize", {
+    headers: {
+      "Authorization": `Token ${localStorage.getItem("token")}`
+    }
+  }).then(res => res.json())
+} 
