@@ -18,7 +18,7 @@ export const TagList = () => {
     return <section className="flexside">
         <div>
             <h3>Tags</h3>
-            {tags.map(tag => <TagLine key={`tag_${tag.id}`}label={tag.label} />)}
+            {tags.map(tag => <TagLine key={`tag_${tag.id}`}ta={tag} sync={syncTags}/>)}
         </div>
         <CreateTag sync={syncTags}/>
     </section>
